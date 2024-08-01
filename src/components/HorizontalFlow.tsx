@@ -56,6 +56,7 @@ const callBackDataToNode = (
       break
     case 2:
       targetPosition = is_right ? 'bottom' : 'top'
+      // @ts-ignore
       sourcePosition = undefined
       break
     default:
@@ -66,6 +67,7 @@ const callBackDataToNode = (
     id: node.sequenceId.toString(),
     sourcePosition: sourcePosition,
     targetPosition: targetPosition,
+    // @ts-ignore
     data: { label: <CardItem data={node} /> },
     position: {
       x: cloneDeep(x),
@@ -111,6 +113,7 @@ const convertDataToNode = (
       id: nodeRoot.sequenceId.toString(),
       sourcePosition: 'right',
       targetPosition: 'left',
+      // @ts-ignore
       data: { label: <CardItem data={nodeRoot} /> },
       position: { x: Math.round(width / 2), y: Math.round(height / 2) },
     })
@@ -158,7 +161,9 @@ export const HorizontalFlow = (props: IProps) => {
   useEffect(() => {
     const nodeConvert = convertDataToNode(data, width, height)
     const edgeConvert = convertDataToEdge(nodeConvert, data)
+    // @ts-ignore
     setNodes(nodeConvert)
+    // @ts-ignore
     setEdges(edgeConvert)
   }, [width, height])
 
@@ -189,7 +194,7 @@ export const HorizontalFlow = (props: IProps) => {
             
               <Image
                 src={`${URL}${champage?.homeLogo}`} 
-                alt={champage?.homeName}
+                alt={champage?.homeName||''}
                 width={20}
                 height={20}
               />

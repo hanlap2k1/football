@@ -1,9 +1,17 @@
 import { HorizontalFlow } from "@/components/HorizontalFlow"
 import { IMatchKnockouts } from "@/interfaces/matchKnockouts"
+import type { Metadata } from 'next'
 interface ResponseData{
   result: {
     matchKnockouts: IMatchKnockouts[]
   }
+}
+
+
+ 
+export const metadata: Metadata = {
+  title: 'Test developer Tú',
+  description: 'Offer lương theo năng lực',
 }
 
 async function getData() {
